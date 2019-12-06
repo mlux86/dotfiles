@@ -52,12 +52,12 @@ set ssop-=options
 set ssop-=folds
 set timeoutlen=1000 ttimeoutlen=0 "exit visual mode faster
 " set termguicolors
+colorscheme monokai
 if has("gui_running")
     set background=dark
-    colorscheme monokai
     set guioptions-=m
     set guioptions-=T
-    set guifont=xos4\ Terminus\ Bold\ 10
+    set guifont=Terminus\ Bold\ 10
 endif
 " }}}
 
@@ -220,6 +220,6 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 

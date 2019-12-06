@@ -3,6 +3,9 @@ export EDITOR=vim
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=10000
 
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # general aliases
 alias sl='ls -h'
 alias ls='ls -h'
@@ -49,7 +52,14 @@ alias gl='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%
 alias gdiff='git difftool -y -t meld'
 
 # misc aliases
-alias fuck='pkill -fi'
-alias bye='systemctl poweroff'
-alias reboot='systemctl reboot'
+alias fuck='kill -9 $(ps -ux | fzf | tr -s " " | cut -d " " -f 2)'
+alias f='rg --files | fzf'
+alias fh='rg --files ~ | fzf'
+alias o='xdg-open'
 
+# autojump
+test -f /usr/share/autojump/autojump.sh && . /usr/share/autojump/autojump.sh
+
+# fzf
+export FZF_DEFAULT_OPTS='-x -e -i'
+test -f ~/.fzf.bash && source ~/.fzf.bash
