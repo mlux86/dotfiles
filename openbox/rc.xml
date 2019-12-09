@@ -18,7 +18,7 @@
   <placement>
     <policy>Smart</policy>
     <center>yes</center>
-    <monitor>Primary</monitor>
+    <monitor>Active</monitor>
     <primaryMonitor>1</primaryMonitor>
   </placement>
 
@@ -124,7 +124,7 @@
 
     <keybind key="W-p"><action name="Execute"><command>rofi -combi-modi window,drun -show combi -modi combi</command></action></keybind>
     <keybind key="W-l"><action name="Execute"><command>mylock</command></action></keybind>
-    <keybind key="A-Return"><action name="Execute"><command>toggle-app '#toggle-term' myterm</command></action></keybind>
+    <keybind key="A-Return"><action name="Execute"><command>toggle-app '#toggle-term' 'xterm -T "#toggle-term"'</command></action></keybind>
     <keybind key="W-e"><action name="Execute"><command>toggle-app ' - File Manager' thunar</command></action></keybind>
     <keybind key="W-f"><action name="Execute"><command>toggle-app ' - Google Chrome' google-chrome-stable</command></action></keybind>
     <keybind key="W-v"><action name="Execute"><command>toggle-app ' - Sublime Text' subl</command></action></keybind>
