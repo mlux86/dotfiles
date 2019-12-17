@@ -2,6 +2,6 @@ xterm*metaSendsEscape: true
 xterm*allowTitleOps: false
 xterm*vt100.locale: true
 xterm*faceName: Terminus
-xterm*faceSize: 9
+xterm*faceSize: 10
 xterm*geometry: 230x80
 

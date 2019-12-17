@@ -14,5 +14,6 @@ active_win=$(xdotool getactivewindow)
 if [[ "$active_win" == "$bg_win" ]]; then
     xdotool windowminimize "$active_win"
 else
+    xdotool set_desktop_for_window "$bg_win" $(xdotool get_desktop) 
     xdotool windowmap "$bg_win" windowactivate "$bg_win" windowfocus "$bg_win"
 fi
