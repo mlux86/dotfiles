@@ -12,8 +12,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
 Plug 'derekwyatt/vim-fswitch'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 call plug#end()
 " }}}
 
@@ -25,7 +23,7 @@ let maplocalleader = ",,"
 
 " {{{ general options
 set nostartofline
-set noautochdir
+set autochdir
 set modeline
 set shortmess+=I
 set encoding=utf-8
@@ -57,7 +55,7 @@ if has("gui_running")
     set background=dark
     set guioptions-=m
     set guioptions-=T
-    set guifont=Terminus\ Bold\ 10
+    set guifont=Terminus\ Bold\ 12
 endif
 " }}}
 
@@ -116,6 +114,11 @@ vnoremap j gj
 vnoremap k gk
 " }}}
 
+" {{{ splits
+set splitbelow
+set splitright
+" }}}
+
 " {{{ editing
 vnoremap < <gv
 vnoremap > >gv
@@ -157,6 +160,13 @@ cmap w!! %!sudo tee > /dev/null %
 map Q @q
 nnoremap <leader>m :w<cr>:make<cr>
 nnoremap <leader>1 :on<cr>
+" }}}
+
+" {{{ clipboard keys
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>y "+y
+vnoremap <leader>Y "+Y
 " }}}
 
 " {{{ LaTeX
