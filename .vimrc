@@ -3,6 +3,7 @@
 " {{{ Plug
 call plug#begin('~/.vim/plugged')
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -11,7 +12,6 @@ Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
-Plug 'derekwyatt/vim-fswitch'
 call plug#end()
 " }}}
 
@@ -209,14 +209,6 @@ nnoremap <leader>tt :CtrlPTag<cr>
 " {{{ supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
-" }}}
-
-" {{{ FSwitch
-nnoremap <leader>^ :FSHere<cr>
-" }}}
-
-" {{{ Ultisnips
-let g:UltiSnipsExpandTrigger="<c-space>"
 " }}}
 
 " {{{ vim-commentary
