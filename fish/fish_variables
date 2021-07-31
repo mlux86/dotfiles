@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR EDITOR:vim
 SETUVAR __fish_git_prompt_show_informative_status:true
 SETUVAR __fish_git_prompt_showuntrackedfiles:true
 SETUVAR __fish_git_prompt_showupstream:git
