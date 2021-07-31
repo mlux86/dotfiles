@@ -1,1 +1,3 @@
-set fish_greeting
+if type -q zoxide
+    zoxide init fish | source
+end
