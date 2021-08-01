@@ -23,6 +23,7 @@ abbr -a auuu sudo apt-get dist-upgrade
 # git
 
 abbr -a g git
+abbr -a gf fit getch
 abbr -a ga git add
 abbr -a gr git remove
 abbr -a gc git commit
