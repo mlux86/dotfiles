@@ -60,3 +60,6 @@
   (yank)
 )
 (global-set-key (kbd "C-d") 'duplicate-line)
+
+;; magit
+(use-package magit)

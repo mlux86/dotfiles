@@ -5,6 +5,7 @@
 .emacs.d/elpa
 .emacs.d/recentf
 .emacs.d/backup
+.emacs.d/transient
 
 
 
