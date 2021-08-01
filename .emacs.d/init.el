@@ -59,7 +59,17 @@
   (next-line 1)
   (yank)
 )
-(global-set-key (kbd "C-d") 'duplicate-line)
+(global-set-key (kbd "C-S-d") 'duplicate-line)
 
 ;; magit
 (use-package magit)
+
+;; org mode
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(custom-set-variables
+ '(org-directory "~/org")
+ '(org-agenda-files (list org-directory))
+ '(org-default-notes-file (concat org-directory "/notes.org")))
