@@ -1,3 +1,10 @@
 .vim/plugged
 .vim/.netrwhist
+.emacs.d/auto-save-list
+.emacs.d/session.*
+.emacs.d/elpa
+.emacs.d/recentf
+.emacs.d/backup
+
+
 

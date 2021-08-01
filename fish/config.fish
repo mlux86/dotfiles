@@ -8,6 +8,8 @@ abbr -a s sudo
 abbr -a more less
 abbr -a o xdg-open
 abbr -a pgrep pgrep -l
+abbr -a e emacsclient -t
+abbr -a ee emacsclient -c -a emacs
 
 # package management
 
@@ -24,6 +26,8 @@ abbr -a g git
 abbr -a ga git add
 abbr -a gr git remove
 abbr -a gc git commit
+abbr -a gca git commit --amend
 abbr -a gs git status
 abbr -a gco git checkout
+abbr -a gu git restore --staged
 
