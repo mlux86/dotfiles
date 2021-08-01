@@ -20,6 +20,8 @@ SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gca:git\x20commit\x20\x2d\x2damend
 SETUVAR _fish_abbr_gco:git\x20checkout
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gf:git\x20fetch
 SETUVAR _fish_abbr_gg:sudo\x20apt\x2dget
 SETUVAR _fish_abbr_gr:git\x20remove
 SETUVAR _fish_abbr_gs:git\x20status
