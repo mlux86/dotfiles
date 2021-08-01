@@ -71,5 +71,10 @@
 
 (custom-set-variables
  '(org-directory "~/org")
- '(org-agenda-files (list org-directory))
- '(org-default-notes-file (concat org-directory "/notes.org")))
+ '(org-agenda-files (list org-directory)))
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i")))
