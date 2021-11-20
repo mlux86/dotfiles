@@ -26,6 +26,7 @@ SETUVAR _fish_abbr_gg:sudo\x20apt\x2dget
 SETUVAR _fish_abbr_gr:git\x20remove
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_gu:git\x20restore\x20\x2d\x2dstaged
+SETUVAR _fish_abbr_lg:lazygit
 SETUVAR _fish_abbr_more:less
 SETUVAR _fish_abbr_o:xdg\x2dopen
 SETUVAR _fish_abbr_pgrep:pgrep\x20\x2dl
