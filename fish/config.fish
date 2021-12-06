@@ -1,3 +1,5 @@
+set fish_greeting
+
 if type -q zoxide
     zoxide init fish | source
 end
@@ -23,6 +25,12 @@ abbr -a as apt-cache search
 abbr -a au sudo apt-get update
 abbr -a auu sudo apt-get upgrade
 abbr -a auuu sudo apt-get dist-upgrade
+
+abbr -a xi sudo xbps-install
+abbr -a xr sudo xbps-remove -R
+abbr -a xu sudo xbps-install -Su
+abbr -a xs sudo xbps-query -Rs
+
 
 # git
 
