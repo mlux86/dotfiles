@@ -29,8 +29,8 @@ abbr -a auuu sudo apt-get dist-upgrade
 abbr -a xi sudo xbps-install
 abbr -a xr sudo xbps-remove -R
 abbr -a xu sudo xbps-install -Su
-abbr -a xs sudo xbps-query -Rs
-
+abbr -a xs xbps-query -Rs
+abbr -a xl xbps-query -l
 
 # git
 

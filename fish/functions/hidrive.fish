@@ -22,9 +22,9 @@ function hidrive -a user action dir opts
 
     switch $action
         case push
-            rsync $opts -rltDve ssh $dir rsync.hidrive.strato.com:/users/$user/
+            rsync --delete $opts -rltDve ssh $dir rsync.hidrive.strato.com:/users/$user/
         case pull
-            rsync $opts -rltDve ssh rsync.hidrive.strato.com:/users/$user/ $dir
+            rsync --delete $opts -rltDve ssh rsync.hidrive.strato.com:/users/$user/ $dir
         case '*'
             echo Unsupported action: $action
     end
