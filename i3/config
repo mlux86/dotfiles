@@ -20,10 +20,16 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +25%
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -25%
 
 bindsym $mod+p exec --no-startup-id "rofi -show combi -combi-modi window,run -modi combi"
 
 bindsym $mod+Return exec i3-sensible-terminal
+
+bindsym Mod1+Mod4+1 exec --no-startup-id "autorandr mobile ; setxkbmap -option ''"
+bindsym Mod1+Mod4+2 exec --no-startup-id "autorandr docked ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff"
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -119,6 +125,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+BackSpace exec loginctl suspend
+bindsym Mod1+Mod4+Shift+BackSpace exec loginctl poweroff
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -148,6 +156,5 @@ bar {
 }
 
 
-# exec autorandr -c && nitrogen --restore
 exec autorandr -c && xsetroot -solid "#333333"
 

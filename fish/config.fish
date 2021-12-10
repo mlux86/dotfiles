@@ -14,6 +14,7 @@ abbr -a e emacsclient -t
 abbr -a ee emacsclient -c -a emacs
 
 # dev
+
 abbr -a lg lazygit
 abbr -a nr npm run
 
@@ -44,4 +45,6 @@ abbr -a gs git status
 abbr -a gd git diff
 abbr -a gco git checkout
 abbr -a gu git restore --staged
+
+test -z $DISPLAY && test (fgconsole) -eq 1 && exec startx
 
