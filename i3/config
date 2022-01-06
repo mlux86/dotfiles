@@ -25,7 +25,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -25%
 
 bindsym $mod+p exec --no-startup-id "rofi -show combi -combi-modi window,run -modi combi"
 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 bindsym Mod1+Mod4+1 exec --no-startup-id "autorandr mobile ; setxkbmap -option ''"
 bindsym Mod1+Mod4+2 exec --no-startup-id "autorandr docked ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff"
@@ -156,5 +156,6 @@ bar {
 }
 
 
-exec autorandr -c && xsetroot -solid "#333333"
+exec --no-startup-id autorandr -c && xsetroot -solid "#333333"
+exec --no-startup-id "pkill -KILL redshift; redshift -r -l 49.9:8.2"
 

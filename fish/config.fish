@@ -10,8 +10,7 @@ abbr -a s sudo
 abbr -a more less
 abbr -a o xdg-open
 abbr -a pgrep pgrep -l
-abbr -a e emacsclient -t
-abbr -a ee emacsclient -c -a emacs
+abbr -a fuck pkill -KILL
 
 # dev
 
