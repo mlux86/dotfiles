@@ -45,5 +45,5 @@ abbr -a gd git diff
 abbr -a gco git checkout
 abbr -a gu git restore --staged
 
-test -z $DISPLAY && test (fgconsole) -eq 1 && exec startx
+test (uname) != "Darwin" && test -z $DISPLAY && test (fgconsole) -eq 1 && exec startx
 

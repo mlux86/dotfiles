@@ -12,6 +12,7 @@ Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
+Plug 'dag/vim-fish'
 call plug#end()
 " }}}
 
@@ -137,6 +138,9 @@ nnoremap R mr{gq}'r
 cnoremap $t <CR>:t''<CR>
 cnoremap $m <CR>:m''<CR>
 cnoremap $d <CR>:d<CR>``
+
+" search and replace in for selected text
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
 " }}}
 
 " {{{ folding
