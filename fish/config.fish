@@ -18,9 +18,10 @@ end
 
 # general
 
+abbr -a l ls -la
 abbr -a s sudo
-abbr -a more less
 abbr -a o xdg-open
+abbr -a more less
 abbr -a pgrep pgrep -l
 abbr -a fuck pkill -KILL
 
@@ -28,6 +29,7 @@ abbr -a fuck pkill -KILL
 
 abbr -a lg lazygit
 abbr -a nr npm run
+abbr -a dc docker-compose
 abbr -a kc kubectl
 
 # package management
