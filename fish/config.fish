@@ -1,4 +1,5 @@
 set fish_greeting
+set hydro_symbol_prompt (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯'
 
 if type -q zoxide
     zoxide init fish | source
