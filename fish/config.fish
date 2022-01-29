@@ -1,5 +1,8 @@
 set fish_greeting
 set hydro_symbol_prompt (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯'
+set hydro_color_pwd blue
+set hydro_color_git cyan
+
 
 if type -q zoxide
     zoxide init fish | source
