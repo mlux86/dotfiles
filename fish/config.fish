@@ -16,6 +16,7 @@ abbr -a fuck pkill -KILL
 
 abbr -a lg lazygit
 abbr -a nr npm run
+abbr -a kc kubectl
 
 # package management
 

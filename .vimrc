@@ -56,7 +56,7 @@ if has("gui_running")
     set background=dark
     set guioptions-=m
     set guioptions-=T
-    set guifont=Terminus\ Bold\ 12
+    set guifont=Monospace\ 14
 endif
 " }}}
 

@@ -24,6 +24,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +25%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -25%
 
 bindsym $mod+p exec --no-startup-id "rofi -show combi -combi-modi window,run -modi combi"
+bindsym $mod+o exec --no-startup-id "rofi -show filebrowser -modi filebrowser"
 
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
