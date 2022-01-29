@@ -1,8 +1,16 @@
+set -gx EDITOR vim
+
+# disable fish greeting
+
 set fish_greeting
+
+# configure hydro
+
 set hydro_symbol_prompt (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯'
 set hydro_color_pwd blue
 set hydro_color_git cyan
 
+# zoxide
 
 if type -q zoxide
     zoxide init fish | source
