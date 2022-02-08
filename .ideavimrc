@@ -1,0 +1,16 @@
+source ~/.vimrc
+
+set surround
+
+map <leader>b <Action>(Switcher)
+map <leader>c <Action>(GotoClass)
+map <leader>f <Action>(GotoFile)
+map <leader>g <Action>(FindInPath)
+
+map <leader>o <Action>(OptimizeImports)
+
+map <leader>r <Action>(Run)
+map <localleader>r <Action>(Debug)
+map <leader>s <Action>(Stop)
+
+imap JJ <Action>(EditorCompleteStatement)
