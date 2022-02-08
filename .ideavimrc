@@ -2,15 +2,15 @@ source ~/.vimrc
 
 set surround
 
+map <leader>r <Action>(RecentFiles)
 map <leader>b <Action>(Switcher)
-map <leader>c <Action>(GotoClass)
+map <leader>o <Action>(GotoClass)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
 
-map <leader>o <Action>(OptimizeImports)
+map <C-A-o> <Action>(OptimizeImports)
 
-map <leader>r <Action>(Run)
-map <localleader>r <Action>(Debug)
-map <leader>s <Action>(Stop)
+map <C-r> <Action>(Run)
+map <C-S-r> <Action>(Debug)
 
 imap JJ <Action>(EditorCompleteStatement)
