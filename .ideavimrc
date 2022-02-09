@@ -7,6 +7,7 @@ map <leader>b <Action>(Switcher)
 map <leader>o <Action>(GotoClass)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
+map <leader>s <Action>(FileStructurePopup)
 
 map <C-A-o> <Action>(OptimizeImports)
 
