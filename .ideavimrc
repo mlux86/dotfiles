@@ -1,6 +1,8 @@
 source ~/.vimrc
 
 set surround
+set ideajoin
+set clipboard+=ideaput
 
 map <leader>r <Action>(RecentFiles)
 map <leader>b <Action>(Switcher)
@@ -10,8 +12,3 @@ map <leader>g <Action>(FindInPath)
 map <leader>s <Action>(FileStructurePopup)
 
 map <C-A-o> <Action>(OptimizeImports)
-
-map <C-r> <Action>(Run)
-map <C-S-r> <Action>(Debug)
-
-imap JJ <Action>(EditorCompleteStatement)
