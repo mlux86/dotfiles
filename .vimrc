@@ -220,3 +220,14 @@ endfun
 "autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
+" {{{ File specific settings
+augroup VimRc
+  au BufWrite,VimLeave .vimrc mkview
+  au BufRead           .vimrc silent loadview
+augroup END
+
+augroup ToDo
+  au BufWrite,VimLeave todo.md mkview
+  au BufRead           todo.md silent loadview
+augroup END
+" }}}
