@@ -147,9 +147,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
 " }}}
 
 " {{{ folding
-set nofoldenable
 nnoremap <space> za
-vnoremap <space> za
 " }}}
 
 " {{{ convenience keys
