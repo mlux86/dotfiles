@@ -10,9 +10,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
 Plug 'dag/vim-fish'
+Plug 'SidOfc/mkdx'
 call plug#end()
 " }}}
 
@@ -23,6 +23,8 @@ let mapleader = ","
 let maplocalleader = ",,"
 
 " {{{ general options
+set mouse=v
+set clipboard=unnamed
 set nostartofline
 set autochdir
 set modeline
@@ -44,7 +46,6 @@ set nu
 set nobackup
 set nowritebackup
 set noswapfile
-set clipboard=unnamedplus
 set tags=~/.tags
 set noundofile
 set ssop-=options
@@ -56,7 +57,7 @@ if has("gui_running")
     set background=dark
     set guioptions-=m
     set guioptions-=T
-    set guifont=Monospace\ 14
+    set guifont=Monaco:h14
 endif
 " }}}
 
@@ -124,12 +125,14 @@ set splitright
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <cr> o<esc>
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
+" delete without yanking
+nnoremap D "_d
+xnoremap D "_d
 
 " reformat paragraph
 nnoremap R mr{gq}'r
@@ -144,9 +147,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
 " }}}
 
 " {{{ folding
-set foldmethod=syntax
-set foldlevelstart=1
-set foldnestmax=1
+set nofoldenable
 nnoremap <space> za
 vnoremap <space> za
 " }}}
@@ -164,13 +165,6 @@ cmap w!! %!sudo tee > /dev/null %
 map Q @q
 nnoremap <leader>m :w<cr>:make<cr>
 nnoremap <leader>1 :on<cr>
-" }}}
-
-" {{{ clipboard keys
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>y "+y
-vnoremap <leader>Y "+Y
 " }}}
 
 " {{{ LaTeX
@@ -210,13 +204,12 @@ nnoremap <leader>t :CtrlPBufTag<cr>
 nnoremap <leader>tt :CtrlPTag<cr>
 "}}}
 
-" {{{ supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-" }}}
-
 " {{{ vim-commentary
 autocmd FileType cpp setlocal commentstring=//\ %s
+" }}}
+
+" {{{ mkdx
+let g:markdown_folding = 1
 " }}}
 
 " {{{ autostrip trailing whitespaces

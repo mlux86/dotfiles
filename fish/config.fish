@@ -24,6 +24,11 @@ abbr -a o xdg-open
 abbr -a more less
 abbr -a pgrep pgrep -l
 abbr -a fuck pkill -KILL
+abbr -a v vim
+
+# productivity
+
+abbr -a t vim ~/notes/todo.md
 
 # dev
 
