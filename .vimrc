@@ -125,10 +125,10 @@ set splitright
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <cr> o<esc>
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
-vnoremap <S-j> :m '>+1<CR>gv=gv
-vnoremap <S-k> :m '<-2<CR>gv=gv
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " delete without yanking
 nnoremap D "_d
@@ -152,6 +152,7 @@ nnoremap <space> za
 
 " {{{ convenience keys
 nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap <leader>t :e $HOME/notes/todo.md<cr>
 nnoremap <localleader>v :source $MYVIMRC<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :qa<cr>
@@ -198,8 +199,6 @@ let g:ctrlp_root_markers = ['.projectroot']
 
 nnoremap <leader>r :CtrlPMRUFiles<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlPBufTag<cr>
-nnoremap <leader>tt :CtrlPTag<cr>
 "}}}
 
 " {{{ vim-commentary
