@@ -51,15 +51,16 @@ set noundofile
 set ssop-=options
 set ssop-=folds
 set timeoutlen=1000 ttimeoutlen=0 "exit visual mode faster
-" set termguicolors
-colorscheme monokai
-if has("gui_running")
-    set background=dark
-    set guioptions-=m
-    set guioptions-=T
-    set guifont=Monaco:h14
-endif
 " }}}
+
+"{{{ look'n'feel
+set termguicolors
+colorscheme monokai
+set background=dark
+set guioptions-=m
+set guioptions-=T
+set guifont=Monospace:h16
+"}}}
 
 " {{{ tabs
 set tabstop=4
