@@ -13,6 +13,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sickill/vim-monokai'
 Plug 'dag/vim-fish'
 Plug 'SidOfc/mkdx'
+Plug 'danro/rename.vim'
+Plug 'ervandew/supertab'
 call plug#end()
 " }}}
 
@@ -24,7 +26,7 @@ let maplocalleader = ",,"
 
 " {{{ general options
 set mouse=v
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set nostartofline
 set autochdir
 set modeline

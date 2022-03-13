@@ -1,4 +1,6 @@
+nitrogen --restore
+polybar main &
+
 pkill -KILL redshift
 redshift -r -l 49.9:8.2 &
-nitrogen -restore
 
