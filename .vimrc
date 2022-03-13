@@ -133,10 +133,6 @@ nnoremap <A-k> :m .-2<CR>==
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" delete without yanking
-nnoremap D "_d
-xnoremap D "_d
-
 " reformat paragraph
 nnoremap R mr{gq}'r
 
