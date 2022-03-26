@@ -5,6 +5,7 @@ modules-left = eth0-network eth1-network wireless-network
 font-0 = "Monospace:size=14:weight=bold;0"
 background = #202020
 module-margin = 2
+enable-ipc = true
 
 [module/date]
 type = internal/date

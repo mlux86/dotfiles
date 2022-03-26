@@ -130,9 +130,9 @@
     <keybind key="XF86MonBrightnessDown"><action name="Execute"><command>xbacklight -25%</command></action></keybind>
 
     <keybind key="W-S-r"><action name="Reconfigure"></action></keybind>
-    <keybind key="W-A-1"><action name="Execute"><command>sh -c 'autorandr mobile ; setxkbmap -option ""'</command></action></keybind>
-    <keybind key="W-A-2"><action name="Execute"><command>sh -c 'autorandr docked ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff'</command></action></keybind>
-    <keybind key="W-A-3"><action name="Execute"><command>sh -c 'autorandr docked-wide ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff'</command></action></keybind>
+    <keybind key="W-A-1"><action name="Execute"><command>sh -c 'autorandr mobile ; setxkbmap -option "" ; nitrogen --restore ; polybar-msg cmd restart'</command></action></keybind>
+    <keybind key="W-A-2"><action name="Execute"><command>sh -c 'autorandr docked ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff ; nitrogen --restore ; polybar-msg cmd restart'</command></action></keybind>
+    <keybind key="W-A-3"><action name="Execute"><command>sh -c 'autorandr docked-wide ; setxkbmap -option altwin:swap_alt_win ; boltctl authorize 00494825-7492-1500-ffff-ffffffffffff ; nitrogen --restore ; polybar-msg cmd restart'</command></action></keybind>
     <keybind key="W-p"><action name="Execute"><command>rofi -show combi -combi-modi window,run -modi combi</command></action></keybind>
     <keybind key="W-o"><action name="Execute"><command>rofi -show filebrowser -modi filebrowser</command></action></keybind>
     <keybind key="W-Return"><action name="Execute"><command>toggle-app '#term' 'alacritty -t "#term"' 1</command></action></keybind>
