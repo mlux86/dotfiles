@@ -29,7 +29,7 @@ abbr -a vim nvim
 
 # productivity
 
-abbr -a t nvim ~/notes/todo.md
+abbr -a t subl ~/notes/todo.md
 
 # dev
 

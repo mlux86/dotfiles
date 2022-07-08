@@ -150,9 +150,9 @@ nnoremap <space> za
 " }}}
 
 " {{{ convenience keys
-nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap <leader>v :e $HOME/.vimrc<cr>
 nnoremap <leader>t :e $HOME/notes/todo.md<cr>
-nnoremap <localleader>v :source $MYVIMRC<cr>
+nnoremap <localleader>v :source $HOME/.vimrc<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :qa<cr>
 nnoremap <leader>d :bd<cr>
@@ -187,6 +187,11 @@ function! SetTexOptions()
 endfunction
 autocmd Filetype tex call SetTexOptions()
 " }}}
+
+"{{{
+map L <Plug>(expand_region_expand)
+map H <Plug>(expand_region_shrink)
+"}}}
 
 "{{{ Ctrl-P
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
