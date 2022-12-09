@@ -4,6 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'terryma/vim-expand-region'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -26,7 +27,6 @@ let maplocalleader = ",,"
 
 " {{{ general options
 set mouse=v
-set clipboard+=unnamedplus
 set nostartofline
 set autochdir
 set modeline
@@ -159,6 +159,8 @@ nnoremap <leader>d :bd<cr>
 nnoremap <f10> :wq<cr>
 inoremap jj <esc>
 inoremap kk <esc>
+inoremap jk <esc>A;<esc>
+inoremap kj <esc>A;<esc>
 cmap w!! %!sudo tee > /dev/null %
 map Q @q
 nnoremap <leader>m :w<cr>:make<cr>

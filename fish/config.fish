@@ -24,8 +24,8 @@ abbr -a o xdg-open
 abbr -a more less
 abbr -a pgrep pgrep -l
 abbr -a fuck pkill -KILL
-abbr -a v nvim
-abbr -a vim nvim
+abbr -a v vim
+abbr -a jn jupyter notebook
 
 # productivity
 
@@ -37,6 +37,7 @@ abbr -a lg lazygit
 abbr -a nr npm run
 abbr -a dc docker-compose
 abbr -a kc kubectl
+abbr -a tf terraform
 
 # package management
 

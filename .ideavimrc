@@ -4,11 +4,40 @@ set surround
 set ideajoin
 set clipboard+=ideaput
 
-map <leader>r <Action>(RecentFiles)
-map <leader>b <Action>(Switcher)
-map <leader>o <Action>(GotoClass)
-map <leader>f <Action>(GotoFile)
-map <leader>g <Action>(FindInPath)
-map <leader>s <Action>(FileStructurePopup)
+nnoremap <leader>o :action OptimizeImports <CR>
+nnoremap = :action ReformatCode <CR>
+vnoremap = :action ReformatCode <CR>
 
-map <C-A-o> <Action>(OptimizeImports)
+nnoremap <leader>R :action RecentFiles<CR>
+
+nnoremap <c-/> :action FindInPath <cr>
+nnoremap go :action GotoClass<CR>
+nnoremap gf :action GotoFile<CR>
+nnoremap gi :action GotoImplementation <CR>
+nnoremap gd :action GotoDeclaration <CR>
+nnoremap gp :action GotoSuperMethod <CR>
+nnoremap gt :action GotoTest <CR>
+nnoremap gs :action FileStructurePopup <CR>
+nnoremap gu :action FindUsages <CR>
+
+nnoremap H :action Back <CR>
+nnoremap L :action Forward <CR>
+
+nnoremap [[ :action MethodUp <CR>
+nnoremap ]] :action MethodDown <CR>
+
+nnoremap ge :action GotoNextError <CR>
+nnoremap gE :action GotoPreviousError <CR>
+
+nnoremap <TAB> :action NextTab <CR>
+nnoremap <S-TAB> :action PreviousTab <CR>
+
+nnoremap <leader>r :action ContextRun<CR>
+nnoremap <leader>c :action RunClass<CR>
+nnoremap <leader>f :action ChooseRunConfiguration<CR>
+nnoremap <leader>t :action ActivateRunToolWindow<CR>
+nnoremap <leader>u :action Rerun<CR>
+nnoremap <leader>f :action RerunFailedTests<CR>
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>d :action ContextDebug<CR>
+nnoremap <leader>n :action ActivateDebugToolWindow<CR>
