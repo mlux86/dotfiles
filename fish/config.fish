@@ -54,6 +54,12 @@ abbr -a xu sudo xbps-install -Su
 abbr -a xs xbps-query -Rs
 abbr -a xl xbps-query -l
 
+abbr -a S sudo pacman -S
+abbr -a Ss pacman -Ss
+abbr -a Syu sudo pacman -Syu
+abbr -a Qs sudo pacman -Qs
+abbr -a Rsn sudo pacman -Rsn
+
 # git
 
 abbr -a g git
