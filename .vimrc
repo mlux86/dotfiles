@@ -2,20 +2,15 @@
 
 " {{{ Plug
 call plug#begin('~/.vim/plugged')
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'terryma/vim-expand-region'
+Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-obsession'
-Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sickill/vim-monokai'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'godlygeek/tabular'
 Plug 'dag/vim-fish'
-Plug 'SidOfc/mkdx'
-Plug 'danro/rename.vim'
-Plug 'ervandew/supertab'
 call plug#end()
 " }}}
 
@@ -61,7 +56,7 @@ colorscheme monokai
 set background=dark
 set guioptions-=m
 set guioptions-=T
-set guifont=Monospace:h16
+set guifont=Terminus
 "}}}
 
 " {{{ tabs
@@ -79,8 +74,6 @@ set gdefault
 set incsearch
 set showmatch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 " }}}
 
 " {{{ long lines
@@ -159,8 +152,8 @@ nnoremap <leader>d :bd<cr>
 nnoremap <f10> :wq<cr>
 inoremap jj <esc>
 inoremap kk <esc>
-inoremap jk <esc>A;<esc>
-inoremap kj <esc>A;<esc>
+inoremap jk <esc>
+inoremap jk <esc>
 cmap w!! %!sudo tee > /dev/null %
 map Q @q
 nnoremap <leader>m :w<cr>:make<cr>
@@ -190,11 +183,6 @@ endfunction
 autocmd Filetype tex call SetTexOptions()
 " }}}
 
-"{{{
-map L <Plug>(expand_region_expand)
-map H <Plug>(expand_region_shrink)
-"}}}
-
 "{{{ Ctrl-P
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
@@ -211,10 +199,6 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 autocmd FileType cpp setlocal commentstring=//\ %s
 " }}}
 
-" {{{ mkdx
-let g:markdown_folding = 1
-" }}}
-
 " {{{ autostrip trailing whitespaces
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -229,10 +213,5 @@ endfun
 augroup VimRc
   au BufWrite,VimLeave .vimrc mkview
   au BufRead           .vimrc silent loadview
-augroup END
-
-augroup ToDo
-  au BufWrite,VimLeave todo.md mkview
-  au BufRead           todo.md silent loadview
 augroup END
 " }}}

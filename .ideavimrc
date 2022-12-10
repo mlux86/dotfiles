@@ -4,33 +4,35 @@ set surround
 set ideajoin
 set clipboard+=ideaput
 
-nnoremap <leader>o :action OptimizeImports <CR>
 nnoremap = :action ReformatCode <CR>
 vnoremap = :action ReformatCode <CR>
 
-nnoremap <leader>R :action RecentFiles<CR>
+nnoremap <leader>o :action OptimizeImports <CR>
+nnoremap <leader>r :action RecentFiles<CR>
 
 nnoremap <c-/> :action FindInPath <cr>
-nnoremap go :action GotoClass<CR>
-nnoremap gf :action GotoFile<CR>
-nnoremap gi :action GotoImplementation <CR>
-nnoremap gd :action GotoDeclaration <CR>
-nnoremap gp :action GotoSuperMethod <CR>
-nnoremap gt :action GotoTest <CR>
-nnoremap gs :action FileStructurePopup <CR>
-nnoremap gu :action FindUsages <CR>
+nnoremap <leader>go :action GotoClass<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+nnoremap <leader>gi :action GotoImplementation <CR>
+nnoremap <leader>gd :action GotoDeclaration <CR>
+nnoremap <leader>gp :action GotoSuperMethod <CR>
+nnoremap <leader>gt :action GotoTest <CR>
+nnoremap <leader>gs :action FileStructurePopup <CR>
+nnoremap <leader>gu :action FindUsages <CR>
+nnoremap <leader>ge :action GotoNextError <CR>
+nnoremap <leader>gE :action GotoPreviousError <CR>
+
+nmap ,K <Action>(QuickJavaDoc)
+nmap ,k <Action>(ExpressionTypeInfo)
+
+nnoremap <TAB> :action NextTab <CR>
+nnoremap <S-TAB> :action PreviousTab <CR>
 
 nnoremap H :action Back <CR>
 nnoremap L :action Forward <CR>
 
 nnoremap [[ :action MethodUp <CR>
 nnoremap ]] :action MethodDown <CR>
-
-nnoremap ge :action GotoNextError <CR>
-nnoremap gE :action GotoPreviousError <CR>
-
-nnoremap <TAB> :action NextTab <CR>
-nnoremap <S-TAB> :action PreviousTab <CR>
 
 nnoremap <leader>r :action ContextRun<CR>
 nnoremap <leader>c :action RunClass<CR>
