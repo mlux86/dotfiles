@@ -1,4 +1,4 @@
-function hidrive -a user action dir opts
+function hidrive -a user action remote_dir local_dir opts
     if set -q $user
         echo "User not set!"
         return
@@ -9,22 +9,32 @@ function hidrive -a user action dir opts
         return
     end
 
-    if set -q $dir
-        echo "Target directory not set!"
+    if set -q $remote_dir
+        echo "Remote directory not set!"
         return
     end
 
-    if not test -d $dir
-        echo "Target directory does not exist!"
+    if not string match -qr '^/.*' $remote_dir
+        echo "Remote directory must start with a slash!"
+        return
+    end
+
+    if set -q $local_dir
+        echo "Local directory not set!"
+        return
+    end
+
+    if not test -d $local_dir
+        echo "Local directory does not exist!"
         return
     end
 
 
     switch $action
         case push
-            rsync --delete $opts -rltDve ssh $dir rsync.hidrive.strato.com:/users/$user/
+            rsync --delete $opts -rltDvze ssh $local_dir $user@rsync.hidrive.strato.com:/users/$user$remote_dir
         case pull
-            rsync --delete $opts -rltDve ssh rsync.hidrive.strato.com:/users/$user/ $dir
+            rsync --delete $opts -rltDvze ssh $user@rsync.hidrive.strato.com:/users/$user$remote_dir $local_dir
         case '*'
             echo Unsupported action: $action
     end
