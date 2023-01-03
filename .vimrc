@@ -7,10 +7,12 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'godlygeek/tabular'
 Plug 'dag/vim-fish'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 " }}}
 
@@ -23,7 +25,6 @@ let maplocalleader = ",,"
 " {{{ general options
 set mouse=v
 set nostartofline
-set autochdir
 set modeline
 set shortmess+=I
 set encoding=utf-8
@@ -56,7 +57,12 @@ colorscheme monokai
 set background=dark
 set guioptions-=m
 set guioptions-=T
-set guifont=Terminus
+if has("gui_macvim")
+    set guifont=Source\ Code\ Pro:h16
+    set clipboard=unnamed
+else
+    set guifont=Terminus:h14
+endif
 "}}}
 
 " {{{ tabs
@@ -188,7 +194,7 @@ let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_root_markers = ['.projectroot']
 
 nnoremap <leader>r :CtrlPMRUFiles<cr>
