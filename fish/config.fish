@@ -1,14 +1,5 @@
 # tmux TERM handling
 
-if test -n "$TMUX"
-    set -x TERM xterm-256color
-end
-
-if test -n "$ALACRITTY_WINDOW_ID"
-    and test -z "$TMUX"
-    exec tmux new -A -s myterm
-end
-
 set -gx EDITOR vim
 
 # disable fish greeting
