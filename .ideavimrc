@@ -2,7 +2,7 @@ source ~/.vimrc
 
 set surround
 set ideajoin
-set clipboard+=ideaput
+set clipboard+=unnamedplus
 
 nnoremap = :action ReformatCode <CR>
 vnoremap = :action ReformatCode <CR>

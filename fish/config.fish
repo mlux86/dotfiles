@@ -20,8 +20,6 @@ end
 
 # general
 
-abbr -a ls exa
-abbr -a l exa -la
 abbr -a s sudo
 abbr -a o open
 abbr -a more less
