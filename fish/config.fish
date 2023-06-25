@@ -20,22 +20,20 @@ end
 
 # general
 
-abbr -a l ls -la
+abbr -a ls exa
+abbr -a l exa -la
 abbr -a s sudo
-abbr -a o xdg-open
+abbr -a o open
 abbr -a more less
 abbr -a pgrep pgrep -l
 abbr -a fuck pkill -KILL
 abbr -a v vim
 abbr -a jn jupyter notebook
 
-# productivity
-
-abbr -a t subl ~/notes/todo.md
-
 # dev
 
 abbr -a lg lazygit
+abbr -a ld lazydocker
 abbr -a nr npm run
 abbr -a dc docker-compose
 abbr -a kc kubectl
@@ -49,12 +47,6 @@ abbr -a as apt-cache search
 abbr -a au sudo apt-get update
 abbr -a auu sudo apt-get upgrade
 abbr -a auuu sudo apt-get dist-upgrade
-
-abbr -a xi sudo xbps-install
-abbr -a xr sudo xbps-remove -R
-abbr -a xu sudo xbps-install -Su
-abbr -a xs xbps-query -Rs
-abbr -a xl xbps-query -l
 
 abbr -a S sudo pacman -S
 abbr -a Ss pacman -Ss
