@@ -53,8 +53,6 @@ set timeoutlen=1000 ttimeoutlen=0 "exit visual mode faster
 
 "{{{ look'n'feel
 set termguicolors
-colorscheme monokai
-set background=dark
 set guioptions-=m
 set guioptions-=T
 if has("gui_macvim")
