@@ -119,9 +119,9 @@ vim.keymap.set("n", "<Space>", "za")
 -- }}}
 
 -- {{{ convenience
-vim.keymap.set("n", "<leader>v", ":e $HOME/.vimrc<CR>")
-vim.keymap.set("n", "<leader>t", ":e $HOME/notes/todo.md<CR>")
+vim.keymap.set("n", "<leader>v", ":e $HOME/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<localleader>v", ":source $HOME/.config/nvim/init.lua<CR>")
+vim.keymap.set("n", "<leader>t", ":e $HOME/notes/todo.md<CR>")
 
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>q", ":qa<CR>")
@@ -141,4 +141,20 @@ vim.keymap.set("", "Q", "@q")
 vim.keymap.set("n", "<leader>m", ":w<CR>:make<CR>")
 
 vim.keymap.set("n", "<leader>1", ":on<CR>")
+-- }}}
+
+-- {{{ plugins
+vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
+require("lazy").setup("plugins")
+-- }}}
+
+-- {{{ telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', builtin.find_files)
+vim.keymap.set('n', '<leader>g', builtin.live_grep)
+vim.keymap.set('n', '<leader>b', builtin.buffers)
+vim.keymap.set('n', '<leader>r', builtin.oldfiles)
+vim.keymap.set('n', '<leader>n', function()
+  builtin.find_files({ cwd = "~/Desktop/notes" })
+end)
 -- }}}
