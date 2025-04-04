@@ -2,11 +2,22 @@
 
 -- {{{ gui
 if vim.g.neovide then
-    vim.o.guifont = "Monaco:h16"
+    local default_font = "Monaco:h16"
+    vim.o.guifont = default_font
     vim.g.neovide_theme = 'light'
     vim.g.neovide_position_animation_length = 0
     vim.g.neovide_scroll_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0
+
+    local function change_fontsize(delta)
+        vim.o.guifont = vim.o.guifont:gsub(":%a*(%d+)", function(size)
+            return ":" .. "h" .. (tonumber(size) + delta)
+        end)
+    end
+
+    vim.keymap.set("n", "<C-=>", function() change_fontsize(1) end)
+    vim.keymap.set("n", "<C-->", function() change_fontsize(-1) end)
+    vim.keymap.set("n", "<C-0>", function() vim.o.guifont = default_font end)
 end
 -- }}}
 
@@ -154,7 +165,17 @@ vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
 vim.keymap.set('n', '<leader>b', builtin.buffers)
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
+-- }}}
+
+-- {{{ notes
 vim.keymap.set('n', '<leader>n', function()
   builtin.find_files({ cwd = "~/Desktop/notes" })
 end)
+
+vim.keymap.set('n', '<leader>N', function()
+    local input = vim.fn.input("New note name: ")
+    if input == "" then return end
+    local filepath = vim.fn.expand("~/Desktop/notes/" .. input .. ".txt")
+    vim.cmd("edit " .. filepath)
+end, { desc = "Create new note in ~/Desktop/notes" })
 -- }}}
