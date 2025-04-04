@@ -18,6 +18,7 @@ if vim.g.neovide then
     vim.keymap.set("n", "<C-=>", function() change_fontsize(1) end)
     vim.keymap.set("n", "<C-->", function() change_fontsize(-1) end)
     vim.keymap.set("n", "<C-0>", function() vim.o.guifont = default_font end)
+    vim.g.neovide_input_macos_option_key_is_meta = 'only_left' -- make alt keybindings work - for some reason, this fixes it
 end
 -- }}}
 
