@@ -123,7 +123,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 -- reformat paragraph
 vim.keymap.set("n", "R", "mr{gq}'r")
 -- search and replace in for selected text
-vim.keymap.set("v", "<C-r>", "\"hy:%s/<C-r>h//g<left><left><left>")
+vim.keymap.set("v", "<C-r>", "\"hy:%s/<C-r>h//g<left><left>")
 -- }}}
 
 -- {{{ folding
@@ -164,8 +164,13 @@ require("lazy").setup("plugins")
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
-vim.keymap.set('n', '<leader>b', builtin.buffers)
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
+vim.keymap.set('n', '<leader>b', function()
+  require('telescope.builtin').buffers({
+    sort_mru = true,
+    ignore_current_buffer = true
+  })
+end)
 -- }}}
 
 -- {{{ notes
