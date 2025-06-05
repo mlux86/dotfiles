@@ -18,7 +18,7 @@ if vim.g.neovide then
     vim.keymap.set("n", "<C-=>", function() change_fontsize(1) end)
     vim.keymap.set("n", "<C-->", function() change_fontsize(-1) end)
     vim.keymap.set("n", "<C-0>", function() vim.o.guifont = default_font end)
-    vim.g.neovide_input_macos_option_key_is_meta = 'only_left' -- make alt keybindings work - for some reason, this fixes it
+    -- vim.g.neovide_input_macos_option_key_is_meta = 'only_left' -- make alt keybindings work - for some reason, this fixes it
 end
 -- }}}
 
@@ -133,11 +133,12 @@ vim.keymap.set("n", "<Space>", "za")
 -- {{{ convenience
 vim.keymap.set("n", "<leader>v", ":e $HOME/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<localleader>v", ":source $HOME/.config/nvim/init.lua<CR>")
-vim.keymap.set("n", "<leader>t", ":e $HOME/notes/todo.md<CR>")
+vim.keymap.set("n", "<leader>t", ":e $HOME/Desktop/notes/todo.txt<CR>")
 
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>q", ":qa<CR>")
 vim.keymap.set("n", "<leader>d", ":bd<CR>")
+vim.keymap.set("n", "<leader>D", ":bd!<CR>")
 vim.keymap.set("n", "<F10>", ":wq<CR>")
 
 vim.keymap.set("i", "jj", "<Esc>")
