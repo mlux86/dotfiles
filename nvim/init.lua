@@ -122,6 +122,7 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 -- reformat paragraph
 vim.keymap.set("n", "R", "mr{gq}'r")
+vim.keymap.set("v", "R", "gq")
 -- search and replace in for selected text
 vim.keymap.set("v", "<C-r>", "\"hy:%s/<C-r>h//g<left><left>")
 -- }}}
