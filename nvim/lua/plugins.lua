@@ -9,6 +9,13 @@ return {
         config = function()
             local builtin = require('telescope.builtin')
             local smart_find_files = require('utils.smart_find_files')
+            
+            -- Configure telescope
+            require('telescope').setup({
+                defaults = {
+                    file_ignore_patterns = { "%.git/" }
+                }
+            })
 
             -- Key mappings
             vim.keymap.set('n', '<leader>f', smart_find_files, { desc = "Find Files (smart root)" })
