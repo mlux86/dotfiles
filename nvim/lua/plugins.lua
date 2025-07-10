@@ -7,39 +7,8 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            local Path = require('plenary.path')
             local builtin = require('telescope.builtin')
-
-            local function smart_find_files()
-                local cwd = vim.fn.expand('%:p:h')
-                local path = Path:new(cwd)
-
-                local function is_root(p)
-                    return p:joinpath('.git'):is_dir() or p:joinpath('.ROOT'):is_file()
-                end
-
-                local function find_root()
-                    while true do
-                        if is_root(path) then
-                            return path:absolute()
-                        end
-                        local parent = path:parent()
-                        if parent:absolute() == path:absolute() then
-                            return cwd
-                        end
-                        path = parent
-                    end
-                end
-
-                builtin.find_files({ cwd = find_root() })
-            end
-
-            -- Telescope default setup (optional)
-            require('telescope').setup({
-                defaults = {
-                    -- You can customize layout, sorting, previewers, etc. here
-                }
-            })
+            local smart_find_files = require('utils.smart_find_files')
 
             -- Key mappings
             vim.keymap.set('n', '<leader>f', smart_find_files, { desc = "Find Files (smart root)" })
