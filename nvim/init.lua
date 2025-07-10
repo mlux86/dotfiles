@@ -22,6 +22,17 @@ if vim.g.neovide then
 end
 -- }}}
 
+-- {{{ auto change directory
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "" then
+      vim.cmd("silent! lcd " .. vim.fn.expand("%:p:h"))
+    end
+  end,
+})
+-- }}}
+
 -- {{{ general
 vim.g.mapleader = ","
 vim.g.maplocalleader = ",,"
@@ -163,8 +174,37 @@ require("lazy").setup("plugins")
 -- }}}
 
 -- {{{ telescope
+local Path = require('plenary.path')
+
+local function smart_find_files()
+  local cwd = vim.fn.expand('%:p:h')
+  local path = Path:new(cwd)
+
+  local function is_root(p)
+    return p:joinpath('.git'):is_dir() or p:joinpath('.ROOT'):is_file()
+  end
+
+  local function find_root()
+    while true do
+      if is_root(path) then
+        return path:absolute()
+      end
+      local parent = path:parent()
+      if parent:absolute() == path:absolute() then
+        -- Reached filesystem root
+        return cwd
+      end
+      path = parent
+    end
+  end
+
+  require('telescope.builtin').find_files({
+    cwd = find_root()
+  })
+end
+
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', builtin.find_files)
+vim.keymap.set('n', '<leader>f', smart_find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
 vim.keymap.set('n', '<leader>r', builtin.oldfiles)
 vim.keymap.set('n', '<leader>b', function()
