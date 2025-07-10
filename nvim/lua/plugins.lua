@@ -27,6 +27,18 @@ return {
                     ignore_current_buffer = true
                 })
             end, { desc = "Buffer List" })
+            
+            -- Notes
+            vim.keymap.set('n', '<leader>n', function()
+                builtin.find_files({ cwd = "~/Desktop/notes" })
+            end)
+            
+            vim.keymap.set('n', '<leader>N', function()
+                local input = vim.fn.input("New note name: ")
+                if input == "" then return end
+                local filepath = vim.fn.expand("~/Desktop/notes/" .. input .. ".txt")
+                vim.cmd("edit " .. filepath)
+            end, { desc = "Create new note in ~/Desktop/notes" })
         end
     }, -- }}}
     { -- {{{ nvim-surround
