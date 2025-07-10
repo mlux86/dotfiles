@@ -144,6 +144,7 @@ vim.keymap.set("n", "<Space>", "za")
 
 -- {{{ convenience
 vim.keymap.set("n", "<leader>v", ":e $HOME/.config/nvim/init.lua<CR>")
+vim.keymap.set("n", "<leader>p", ":e $HOME/.config/nvim/lua/plugins.lua<CR>")
 vim.keymap.set("n", "<localleader>v", ":source $HOME/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>t", ":e $HOME/Desktop/notes/todo.txt<CR>")
 
