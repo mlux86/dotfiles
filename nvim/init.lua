@@ -173,48 +173,6 @@ vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
 require("lazy").setup("plugins")
 -- }}}
 
--- {{{ telescope
-local Path = require('plenary.path')
-
-local function smart_find_files()
-  local cwd = vim.fn.expand('%:p:h')
-  local path = Path:new(cwd)
-
-  local function is_root(p)
-    return p:joinpath('.git'):is_dir() or p:joinpath('.ROOT'):is_file()
-  end
-
-  local function find_root()
-    while true do
-      if is_root(path) then
-        return path:absolute()
-      end
-      local parent = path:parent()
-      if parent:absolute() == path:absolute() then
-        -- Reached filesystem root
-        return cwd
-      end
-      path = parent
-    end
-  end
-
-  require('telescope.builtin').find_files({
-    cwd = find_root()
-  })
-end
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', smart_find_files)
-vim.keymap.set('n', '<leader>g', builtin.live_grep)
-vim.keymap.set('n', '<leader>r', builtin.oldfiles)
-vim.keymap.set('n', '<leader>b', function()
-  require('telescope.builtin').buffers({
-    sort_mru = true,
-    ignore_current_buffer = true
-  })
-end)
--- }}}
-
 -- {{{ notes
 vim.keymap.set('n', '<leader>n', function()
   builtin.find_files({ cwd = "~/Desktop/notes" })
