@@ -39,12 +39,12 @@ abbr -a tf terraform
 
 # package management
 
-abbr -a ai sudo apt-get install
-abbr -a ar sudo apt-get remove --purge
-abbr -a as apt-cache search
-abbr -a au sudo apt-get update
-abbr -a auu sudo apt-get upgrade
-abbr -a auuu sudo apt-get dist-upgrade
+abbr -a ai sudo apt install
+abbr -a ar sudo apt remove --purge
+abbr -a as apt search
+abbr -a au sudo apt update
+abbr -a auu sudo apt upgrade
+abbr -a auuu sudo apt dist-upgrade
 
 abbr -a S sudo pacman -S
 abbr -a Ss pacman -Ss
