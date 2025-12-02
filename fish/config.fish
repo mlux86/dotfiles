@@ -26,6 +26,7 @@ abbr -a more less
 abbr -a pgrep pgrep -l
 abbr -a fuck pkill -KILL
 abbr -a v nvim
+abbr -a vim nvim
 abbr -a jn jupyter notebook
 
 # dev

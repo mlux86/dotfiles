@@ -30,15 +30,15 @@ return {
             
             -- Notes
             vim.keymap.set('n', '<leader>n', function()
-                builtin.find_files({ cwd = "~/Desktop/notes" })
+                builtin.find_files({ cwd = "~/.notes" })
             end)
             
             vim.keymap.set('n', '<leader>N', function()
                 local input = vim.fn.input("New note name: ")
                 if input == "" then return end
-                local filepath = vim.fn.expand("~/Desktop/notes/" .. input .. ".txt")
+                local filepath = vim.fn.expand("~/.notes/" .. input .. ".txt")
                 vim.cmd("edit " .. filepath)
-            end, { desc = "Create new note in ~/Desktop/notes" })
+            end, { desc = "Create new note in ~/.notes" })
         end
     }, -- }}}
     { -- {{{ nvim-surround
@@ -58,6 +58,27 @@ return {
                 expr = true,
                 replace_keycodes = false
             })
+        end
+    }, -- }}}
+    { -- {{{ nvim-tree.lua
+        "nvim-tree/nvim-tree.lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("nvim-tree").setup({
+                view = {
+                    width = 30,
+                },
+                renderer = {
+                    group_empty = true,
+                },
+                filters = {
+                    dotfiles = true,
+                },
+            })
+            
+            -- Key mappings
+            vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle File Explorer" })
+            vim.keymap.set('n', '<leader>E', ':NvimTreeFocus<CR>', { desc = "Focus File Explorer" })
         end
     } -- }}}
 }

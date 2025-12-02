@@ -1,6 +1,8 @@
 -- vim: fdm=marker
 
 -- {{{ gui
+vim.cmd.colorscheme('default')
+
 if vim.g.neovide then
     local default_font = "Monaco:h16"
     vim.o.guifont = default_font
@@ -146,7 +148,7 @@ vim.keymap.set("n", "<Space>", "za")
 vim.keymap.set("n", "<leader>v", ":e $HOME/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>p", ":e $HOME/.config/nvim/lua/plugins.lua<CR>")
 vim.keymap.set("n", "<localleader>v", ":source $HOME/.config/nvim/init.lua<CR>")
-vim.keymap.set("n", "<leader>t", ":e $HOME/Desktop/notes/todo.txt<CR>")
+vim.keymap.set("n", "<leader>t", ":e $HOME/.notes/scratch.txt<CR>")
 
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>q", ":qa<CR>")
