@@ -50,35 +50,4 @@ return {
             })
         end
     }, -- }}}
-    { -- {{{ github/copilot.vim
-        "github/copilot.vim",
-        config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.keymap.set('i', '<M-CR>', 'copilot#Accept("")', {
-                expr = true,
-                replace_keycodes = false
-            })
-        end
-    }, -- }}}
-    { -- {{{ nvim-tree.lua
-        "nvim-tree/nvim-tree.lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("nvim-tree").setup({
-                view = {
-                    width = 30,
-                },
-                renderer = {
-                    group_empty = true,
-                },
-                filters = {
-                    dotfiles = true,
-                },
-            })
-            
-            -- Key mappings
-            vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle File Explorer" })
-            vim.keymap.set('n', '<leader>E', ':NvimTreeFocus<CR>', { desc = "Focus File Explorer" })
-        end
-    } -- }}}
 }
