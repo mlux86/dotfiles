@@ -1,5 +1,8 @@
 -- vim: fdm=marker
 return {
+    { -- {{{ vim-suda
+        "lambdalisue/vim-suda"
+    }, -- }}}
     { -- {{{ plenary.vim
         "nvim-lua/plenary.nvim"
     }, -- }}}
