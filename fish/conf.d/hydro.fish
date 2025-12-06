@@ -108,7 +108,7 @@ function _hydro_uninstall --on-event hydro_uninstall
     functions --erase (functions --all | string match --entire --regex "^_?hydro_")
 end
 
-for color in hydro_color_{pwd,git,error,prompt,duration}
+for color in hydro_color_{pwd,git,error,prompt,duration,hostname}
     function $color --on-variable $color --inherit-variable color
         set --query $color && set --global _$color (set_color $$color)
     end && $color
@@ -123,8 +123,11 @@ function hydro_multiline --on-variable hydro_multiline
 end && hydro_multiline
 
 set --query hydro_color_error || set --global hydro_color_error $fish_color_error
+set --query hydro_color_hostname || set --global hydro_color_hostname green
 set --query hydro_symbol_prompt || set --global hydro_symbol_prompt ❱
 set --query hydro_symbol_git_dirty || set --global hydro_symbol_git_dirty •
 set --query hydro_symbol_git_ahead || set --global hydro_symbol_git_ahead ↑
 set --query hydro_symbol_git_behind || set --global hydro_symbol_git_behind ↓
 set --query hydro_multiline || set --global hydro_multiline false
+
+set --global _hydro_user_host "$USER@"(hostname -s)
