@@ -1,0 +1,18 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    // Start with the standard US layout
+    include "us(basic)"
+    name[Group1]= "US (Win-key Umlauts)";
+
+    // This specifically maps the Left Windows key to act as AltGr/Level 3
+    include "level3(lwin_switch)"
+
+    // Map Win + U to the dead umlaut (diaeresis)
+    // The format is: [ Level1, Level2 (Shift), Level3 (Win), Level4 (Win+Shift) ]
+    key <AD07> { [ u, U, dead_diaeresis, dead_diaeresis ] };
+
+    // Mac-style direct mappings (Win + letter)
+    key <AC01> { [ a, A, adiaeresis, Adiaeresis ] }; // Win+A = ä
+    key <AD09> { [ o, O, odiaeresis, Odiaeresis ] }; // Win+O = ö
+    key <AC02> { [ s, S, ssharp,     ssharp     ] }; // Win+S = ß
+};
