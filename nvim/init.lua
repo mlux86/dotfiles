@@ -4,7 +4,7 @@
 vim.cmd.colorscheme('default')
 
 if vim.g.neovide then
-    local default_font = "Monaco:h16"
+    local default_font = "Monospace:h14"
     vim.o.guifont = default_font
     vim.g.neovide_theme = 'light'
     vim.g.neovide_position_animation_length = 0
@@ -173,6 +173,17 @@ vim.keymap.set("n", "<leader>1", ":on<CR>")
 
 -- {{{ plugins
 vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
-require("lazy").setup("plugins")
+require("lazy").setup({
+  spec = {
+    -- This tells lazy to look in the "plugins" directory for your plugin files
+    { import = "plugins" },
+  },
+  performance = {
+    rtp = {
+      -- This prevents lazy from resetting the runtime path
+      reset = false,
+    },
+  },
+})
 -- }}}
 
