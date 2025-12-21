@@ -1,0 +1,9 @@
+PATH=$PATH:$HOME/.local/bin:$HOME/.dotfiles/scripts:$HOME/.cargo/bin
+ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# XKB_DEFAULT_LAYOUT=us
+# XKB_DEFAULT_VARIANT=altgr-intl
+# XKB_DEFAULT_OPTIONS=caps:ctrl_modifier
+
+XKB_DEFAULT_LAYOUT=mac_intl
+XKB_DEFAULT_VARIANT=basic

@@ -1,0 +1,4 @@
+wlr-randr --output DP-2 --mode 3840x2160@160Hz --scale 1.25
+swaybg -c '445566' >/dev/null 2>&1 &
+mako >/dev/null 2>&1 &
+

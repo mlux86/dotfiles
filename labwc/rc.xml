@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+
+<labwc_config>
+    <desktops number="10" popupTime="300" />
+
+    <windowSwitcher preview="yes" outlines="no" allWorkspaces="no" />
+
+    <snapping>
+        <range inner="10" outer="10" />
+        <cornerRange>50</cornerRange>
+        <overlay enabled="yes">
+            <delay inner="500" outer="500" />
+        </overlay>
+        <topMaximize>yes</topMaximize>
+        <notifyClient>always</notifyClient>
+    </snapping>
+
+    <keyboard>
+        <keybind key="A-Tab"><action name="NextWindow" /></keybind>
+        <keybind key="A-S-Tab"><action name="PreviousWindow" /></keybind>
+        <keybind key="A-x"><action name="Close" /></keybind>
+        <keybind key="A-Left"><action name="SnapToEdge" direction="left" combine="yes" /></keybind>
+        <keybind key="A-Right"><action name="SnapToEdge" direction="right" combine="yes" /></keybind>
+        <keybind key="A-Up"><action name="SnapToEdge" direction="up" combine="yes" /></keybind>
+        <keybind key="A-Down"><action name="SnapToEdge" direction="down" combine="yes" /></keybind>
+
+        <keybind key="A-p"><action name="Execute" command="rofi -show drun" /></keybind>
+        <keybind key="A-Return"><action name="Execute" command="toggle-app Alacritty alacritty" /></keybind>
+        <keybind key="A-i"><action name="Execute" command="pw-autofill.sh" /></keybind>
+        <keybind key="A-s"><action name="Execute" command="cycle-audio-output.sh" /></keybind>
+        <keybind key="A-f"><action name="Execute" command="toggle-app io.github.ungoogled_software.ungoogled_chromium flatpak run io.github.ungoogled_software.ungoogled_chromium" /></keybind>
+        <keybind key="A-v"><action name="Execute" command="toggle-app neovide neovide" /></keybind>
+        <keybind key="A-e"><action name="Execute" command="toggle-app pcmanfm pcmanfm" /></keybind>
+
+        <keybind key="A-p"><action name="Execute" command="grimshot copy area" /></keybind>
+        <keybind key="XF86AudioRaiseVolume"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh up" /></keybind>
+        <keybind key="XF86AudioLowerVolume"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh down" /></keybind>
+        <keybind key="XF86AudioMute"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh mute" /></keybind>
+
+        <keybind key="A-1"><action name="GoToDesktop" to="1" /></keybind>
+        <keybind key="A-2"><action name="GoToDesktop" to="2" /></keybind>
+        <keybind key="A-3"><action name="GoToDesktop" to="3" /></keybind>
+        <keybind key="A-4"><action name="GoToDesktop" to="4" /></keybind>
+        <keybind key="A-5"><action name="GoToDesktop" to="5" /></keybind>
+        <keybind key="A-6"><action name="GoToDesktop" to="6" /></keybind>
+        <keybind key="A-7"><action name="GoToDesktop" to="7" /></keybind>
+        <keybind key="A-8"><action name="GoToDesktop" to="8" /></keybind>
+        <keybind key="A-9"><action name="GoToDesktop" to="9" /></keybind>
+        <keybind key="A-0"><action name="GoToDesktop" to="10" /></keybind>
+        <keybind key="A-S-1"><action name="SendToDesktop" to="1" /></keybind>
+        <keybind key="A-S-2"><action name="SendToDesktop" to="2" /></keybind>
+        <keybind key="A-S-3"><action name="SendToDesktop" to="3" /></keybind>
+        <keybind key="A-S-4"><action name="SendToDesktop" to="4" /></keybind>
+        <keybind key="A-S-5"><action name="SendToDesktop" to="5" /></keybind>
+        <keybind key="A-S-6"><action name="SendToDesktop" to="6" /></keybind>
+        <keybind key="A-S-7"><action name="SendToDesktop" to="7" /></keybind>
+        <keybind key="A-S-8"><action name="SendToDesktop" to="8" /></keybind>
+        <keybind key="A-S-9"><action name="SendToDesktop" to="9" /></keybind>
+        <keybind key="A-S-0"><action name="SendToDesktop" to="10" /></keybind>
+    </keyboard>
+
+
+    <libinput>
+        <device category="default">
+            <naturalScroll>yes</naturalScroll>
+            <pointerSpeed>0.0</pointerSpeed>
+            <accelProfile>no</accelProfile>
+        </device>
+    </libinput>
+
+    <mouse>
+        <doubleClickTime>500</doubleClickTime>
+
+        <context name="Frame">
+            <mousebind button="W-Left" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="W-Left" action="Drag">
+                <action name="Move" />
+            </mousebind>
+            <mousebind button="W-Right" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="W-Right" action="Drag">
+                <action name="Resize" />
+            </mousebind>
+        </context>
+
+        <context name="Border">
+            <mousebind button="Left" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="Left" action="Drag">
+                <action name="Resize" />
+            </mousebind>
+        </context>
+
+        <context name="TitleBar">
+            <mousebind button="Left" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="Right" action="Click">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind direction="Up" action="Scroll">
+                <action name="Unshade" />
+                <action name="Focus" />
+            </mousebind>
+            <mousebind direction="Down" action="Scroll">
+                <action name="Unfocus" />
+                <action name="Shade" />
+            </mousebind>
+        </context>
+
+        <context name="Title">
+            <mousebind button="Left" action="Drag">
+                <action name="Move" />
+            </mousebind>
+            <mousebind button="Left" action="DoubleClick">
+                <action name="ToggleMaximize" />
+            </mousebind>
+            <mousebind button="Right" action="Click">
+                <action name="ShowMenu" menu="client-menu" />
+            </mousebind>
+        </context>
+
+        <context name="Maximize">
+            <mousebind button="Left" action="Click">
+                <action name="ToggleMaximize" />
+            </mousebind>
+            <mousebind button="Right" action="Click">
+                <action name="ToggleMaximize" direction="horizontal" />
+            </mousebind>
+            <mousebind button="Middle" action="Click">
+                <action name="ToggleMaximize" direction="vertical" />
+            </mousebind>
+        </context>
+
+        <context name="WindowMenu">
+            <mousebind button="Left" action="Click">
+                <action name="ShowMenu" menu="client-menu" atCursor="no" />
+            </mousebind>
+            <mousebind button="Right" action="Click">
+                <action name="ShowMenu" menu="client-menu" atCursor="no" />
+            </mousebind>
+        </context>
+
+        <context name="Icon">
+            <mousebind button="Left" action="Click">
+                <action name="ShowMenu" menu="client-menu" atCursor="no" />
+            </mousebind>
+            <mousebind button="Right" action="Click">
+                <action name="ShowMenu" menu="client-menu" atCursor="no" />
+            </mousebind>
+        </context>
+
+        <context name="Shade">
+            <mousebind button="Left" action="Click">
+                <action name="ToggleShade" />
+            </mousebind>
+        </context>
+
+        <context name="AllDesktops">
+            <mousebind button="Left" action="Click">
+                <action name="ToggleOmnipresent" />
+            </mousebind>
+        </context>
+
+        <context name="Iconify">
+            <mousebind button="Left" action="Click">
+                <action name="Iconify" />
+            </mousebind>
+        </context>
+
+        <context name="Close">
+            <mousebind button="Left" action="Click">
+                <action name="Close" />
+            </mousebind>
+        </context>
+
+        <context name="Client">
+            <mousebind button="Left" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="Middle" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="Right" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+        </context>
+        <context name="Root">
+            <mousebind button="Right" action="Press">
+                <action name="ShowMenu" menu="root-menu" />
+            </mousebind>
+            <mousebind direction="Up" action="Scroll">
+                <action name="GoToDesktop" to="left" wrap="yes" />
+            </mousebind>
+            <mousebind direction="Down" action="Scroll">
+                <action name="GoToDesktop" to="right" wrap="yes" />
+            </mousebind>
+        </context>
+        <context name="Frame">
+            <mousebind button="A-Left" action="Drag">
+                <action name="Move"/>
+            </mousebind>
+
+            <mousebind button="A-Right" action="Drag">
+                <action name="Resize"/>
+            </mousebind>
+        </context>
+    </mouse>
+
+</labwc_config>
