@@ -1,0 +1,26 @@
+#!/usr/bin/fish
+
+# Usage: toggle_app.fish <app_id> <command> <optional_args...>
+
+set APP_ID $argv[1]
+# Everything else is the command to run
+set EXEC_CMD $argv[2..-1]
+
+# 1. Check if the app is already running/visible
+# We use wlrctl to find windows matching the app_id
+if not wlrctl toplevel find app_id:$APP_ID > /dev/null 2>&1
+    # CASE: Not running -> Start it
+    # We use eval to handle cases where the command has its own flags
+    eval $EXEC_CMD &
+else
+    # CASE: Running -> Toggle Focus/Minimize
+    # Check if the window is currently 'active' (focused)
+    if wlrctl toplevel find app_id:$APP_ID state:active > /dev/null 2>&1
+        # It's already focused, so minimize it
+        wlrctl toplevel minimize app_id:$APP_ID
+    else
+        # It's running but not focused, so bring it to front
+        wlrctl toplevel focus app_id:$APP_ID
+    end
+end
+
