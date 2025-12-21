@@ -1,3 +1,30 @@
-function fish_prompt -d Hydro
-    string unescape "$_hydro_color_hostname$_hydro_user_host\x1b[0m $_hydro_color_pwd$_hydro_pwd\x1b[0m $_hydro_color_git$$_hydro_git\x1b[0m$_hydro_color_duration$_hydro_cmd_duration\x1b[0m$_hydro_prompt\x1b[0m "
+function fish_prompt
+    set -l last_status $status
+
+    # User@hostname in green
+    set_color green
+    echo -n "$USER@"(hostname -s)
+    set_color normal
+    echo -n " "
+
+    # Current directory in blue
+    set_color blue
+    echo -n (prompt_pwd)
+    set_color normal
+
+    # Git branch if in a git repo
+    if set -l branch (git branch --show-current 2>/dev/null)
+        echo -n " ("
+        set_color yellow
+        echo -n $branch
+        set_color normal
+        echo -n ")"
+    end
+
+    # Prompt symbol (red if last command failed)
+    if test $last_status -ne 0
+        set_color red
+    end
+    echo -n " > "
+    set_color normal
 end
