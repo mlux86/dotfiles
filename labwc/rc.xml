@@ -32,7 +32,7 @@
         <keybind key="A-v"><action name="Execute" command="toggle-app neovide neovide" /></keybind>
         <keybind key="A-e"><action name="Execute" command="toggle-app pcmanfm pcmanfm" /></keybind>
 
-        <keybind key="A-p"><action name="Execute" command="grimshot copy area" /></keybind>
+        <keybind key="A-q"><action name="Execute" command="grimshot copy area" /></keybind>
         <keybind key="XF86AudioRaiseVolume"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh up" /></keybind>
         <keybind key="XF86AudioLowerVolume"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh down" /></keybind>
         <keybind key="XF86AudioMute"><action name="Execute" command="~/.dotfiles/scripts/volume-ctl.sh mute" /></keybind>
