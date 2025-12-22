@@ -24,6 +24,7 @@
         <keybind key="A-Up"><action name="SnapToEdge" direction="up" combine="yes" /></keybind>
         <keybind key="A-Down"><action name="SnapToEdge" direction="down" combine="yes" /></keybind>
 
+        <keybind key="A-d"><action name="Execute" command="dictate" /></keybind>
         <keybind key="A-p"><action name="Execute" command="rofi -show drun" /></keybind>
         <keybind key="A-Return"><action name="Execute" command="toggle-app Alacritty alacritty" /></keybind>
         <keybind key="A-i"><action name="Execute" command="pw-autofill.sh" /></keybind>

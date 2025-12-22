@@ -1,0 +1,68 @@
+#!/usr/bin/fish
+
+# How to compile whisper-cpp for AMD
+#
+# 1. Install ROCM
+# 2. git clone git@github.com:ggml-org/whisper.cpp.git
+# 3. cmake -B build -DGGML_HIP=ON -DGGML_AMDGPU_TARGETS=gfx1201 -DGGML_ROCM=ON
+# 4. cmake --build build -j16 --config Release
+
+# Configuration
+set TEMP_AUDIO "/tmp/voice_record.wav"
+set LOCK_FILE "/tmp/recording.lock"
+set MAX_SECONDS 600 # 10-minute safety limit
+
+# 1. Check: Is an ffmpeg process (from this script) already running?
+set EXISTING_FFMPEG (pgrep -f "ffmpeg.*voice_record.wav")
+
+if not test -n "$EXISTING_FFMPEG"
+    # --- START MODE ---
+    # If an old lock file exists even though no process is running: delete it
+    if test -f $LOCK_FILE; rm $LOCK_FILE; end
+
+    notify-send -t 1000 "Whisper" "Recording started (max. 10 min)..." -i audio-input-microphone
+
+    # Start recording with time limit (-t)
+    ffmpeg -y -t $MAX_SECONDS -f alsa -i default -ar 16000 -ac 1 $TEMP_AUDIO > /dev/null 2>&1 &
+
+    # Save PID
+    echo $last_pid > $LOCK_FILE
+
+else
+    # --- STOP MODE ---
+    # Get the PID found via pgrep above
+    set PID $EXISTING_FFMPEG
+
+    # Initiate graceful termination
+    kill $PID
+
+    # Wait until the process has truly ended (Polling)
+    # kill -0 returns 0 as long as the process is alive
+    while kill -0 $PID 2>/dev/null
+        sleep 0.1
+    end
+
+    if test -f $LOCK_FILE; rm $LOCK_FILE; end
+
+    # Check if the file exists and has content
+    if not test -s $TEMP_AUDIO
+        notify-send -t 1000 "Whisper" "Error: Recording file is empty." -u critical
+        return 1
+    end
+
+    # Whisper Call
+    whisper-cli -m ~/.local/share/dictate/ggml-large-v3-turbo.bin -f $TEMP_AUDIO -otxt -l de
+
+    # Process the transcription
+    if test -f $TEMP_AUDIO.txt
+        set CONTENT (cat $TEMP_AUDIO.txt)
+        # Copy to clipboard
+        echo -n $CONTENT | wl-copy
+        sleep 0.2
+        # Simulate Paste
+        wtype -M ctrl v -m ctrl     
+    else
+        notify-send -t 1000 "Whisper" "Transcription failed." -u critical
+    end
+end
+
