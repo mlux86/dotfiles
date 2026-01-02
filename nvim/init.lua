@@ -4,7 +4,13 @@
 vim.cmd.colorscheme('default')
 
 if vim.g.neovide then
-    local default_font = "Monospace:h14"
+    -- Set font based on OS
+    local default_font
+    if vim.fn.has("mac") == 1 then
+        default_font = "Source Code Pro:h16"
+    else
+        default_font = "Monospace:h14"
+    end
     vim.o.guifont = default_font
     vim.g.neovide_theme = 'light'
     vim.g.neovide_position_animation_length = 0
